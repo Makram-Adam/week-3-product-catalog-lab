@@ -1,0 +1,29 @@
+Week 3 Lab: Redis Cache and Pub/Sub
+
+========================================
+1. CACHE
+========================================
+
+SET catalog:count 3 EX 300
+
+GET catalog:count
+
+
+========================================
+2. SORTED SET / PRODUCT LEADERBOARD
+========================================
+
+ZADD products:byprice 1299.99 laptop 89.99 headphones 549 desk
+
+ZREVRANGE products:byprice 0 -1 WITHSCORES
+
+
+========================================
+3. PUB/SUB
+========================================
+
+Terminal 1:
+SUBSCRIBE inventory
+
+Terminal 2:
+PUBLISH inventory "Laptop Pro stock updated to 44"
